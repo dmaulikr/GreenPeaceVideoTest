@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "GPViewController.h"
+#import "GPDataStore.h"
+#import "GPDataMapper.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] init];
+    [navigationController pushViewController:[[GPViewController alloc] init] animated:NO];
+    self.window.rootViewController = navigationController;
+    
+    [self.window makeKeyAndVisible];
+    
+    [[GPDataStore sharedInstance] restoreDataWithMapper:[GPDataMapper new]];
+    
     return YES;
 }
 

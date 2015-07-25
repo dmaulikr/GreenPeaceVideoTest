@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GPViewController.h
 //  GreenPeaceVideoTest
 //
 //  Created by Alexander Makarov on 23.07.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GPViewController : UIViewController
 
 @end
-
