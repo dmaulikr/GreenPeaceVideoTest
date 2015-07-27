@@ -28,4 +28,12 @@
     return self;
 }
 
++ (GPType *)typeWithID:(NSNumber *)ID name:(NSString *)name
+{
+    GPType *type = [[GPType alloc] init];
+    type.ID = ID;
+    type.name = name;
+    return type;
+}
+
 @end

@@ -10,6 +10,8 @@
 #import "GPViewController.h"
 #import "GPDataStore.h"
 #import "GPDataMapper.h"
+#import "UIColor+Extension.h"
+#import "UIFont+Extension.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +23,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [UINavigationBar appearance].barTintColor = [UIColor mainColor2];
+    [UINavigationBar appearance].backIndicatorImage = [UIImage imageNamed:@"back_bttn"];
+    
+    NSDictionary *attributes = @{
+                                 NSForegroundColorAttributeName : [UIColor textColor1],
+                                 NSFontAttributeName : [UIFont customFont4],
+                                 };
+    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     
     UINavigationController *navigationController = [[UINavigationController alloc] init];
     [navigationController pushViewController:[[GPViewController alloc] init] animated:NO];

@@ -7,9 +7,12 @@
 //
 
 #import "GPDataStore.h"
+#import <Underscore.h>
 
-@implementation GPDataStore {
+@implementation GPDataStore 
+{
     GPData *_data;
+    NSMutableDictionary *_imagesDictionary;
 }
 
 + (instancetype)sharedInstance
@@ -64,6 +67,61 @@
 }
 
 
+#pragma mark - images
 
+- (void)imageForKey:(NSString *)key
+          isPreview:(BOOL)isPreview
+      imageLoadType:(GPImageLoadType)imageLoadType
+         completion:(void (^)(UIImage *))completionBlock
+{
+    if (!_imagesDictionary) {
+        _imagesDictionary = [NSMutableDictionary new];
+    }
+    
+    NSString *imageName = [self imageNameByKey:key isPreview:isPreview];
+    if ([_imagesDictionary objectForKey:imageName]) {
+        UIImage *image = [_imagesDictionary objectForKey:imageName];
+        completionBlock(image);
+    }
+    else {
+        [[GPDataReceiverWizard sharedInstance] loadImageWithName:imageName
+                                                   imageLoadType:imageLoadType
+                                                      completion:^(UIImage *image) {
+                                                          [_imagesDictionary setObject:image forKey:imageName];
+                                                          completionBlock(image);
+                                                      }];
+    }
+}
+
+- (NSString *)imageNameByKey:(NSString *)key isPreview:(BOOL)isPreview
+{
+    if (isPreview) {
+        return [NSString stringWithFormat:@"thumb_%@", key];
+    }
+    return key;
+}
+
+
+#pragma mark - 
+
+- (NSArray *)listCamerasByObject:(GPObject *)object
+{
+    return Underscore.array(self.cameras).filter(^BOOL (GPCamera *camera) {
+        return [camera.objID isEqualToNumber:object.ID];
+    })
+    .unwrap;
+}
+
+- (NSArray *)objectsByFilertID:(NSNumber *)filterID
+{
+    if (!filterID) {
+        return self.objects;
+    }
+    
+    return Underscore.array(self.objects).filter(^BOOL (GPObject *object) {
+        return [object.typeList containsObject:filterID];
+    })
+    .unwrap;
+}
 
 @end

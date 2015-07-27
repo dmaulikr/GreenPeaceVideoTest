@@ -1,5 +1,5 @@
 //
-//  GPViewController.h
+//  GPCamerasViewController.h
 //  GreenPeaceVideoTest
 //
 //  Created by Alexander Makarov on 23.07.15.
@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <VKVideoPlayerViewController.h>
+#import "GPObject.h"
 
-@interface GPViewController : UIViewController
+@interface GPCamerasViewController : UIViewController
+
+- (instancetype)initWithObject:(GPObject *)object;
 
 @end

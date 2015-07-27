@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E9C5D9A1B66505D001355BB /* GPObjectsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C5D971B66505D001355BB /* GPObjectsCell.m */; };
+		5E9C5D9B1B66505D001355BB /* GPObjectsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C5D981B66505D001355BB /* GPObjectsCell.xib */; };
+		5E9C5D9E1B6651A6001355BB /* GPNavTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C5D9D1B6651A6001355BB /* GPNavTitleButton.m */; };
+		5E9C5DAF1B66D0F6001355BB /* GPCamerasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C5DAD1B66D0F6001355BB /* GPCamerasViewController.m */; };
+		5E9C5DB31B66D211001355BB /* GPCamerasCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E9C5DB01B66D211001355BB /* GPCamerasCell.xib */; };
+		5E9C5DB41B66D211001355BB /* GPCamerasCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C5DB21B66D211001355BB /* GPCamerasCell.m */; };
+		5E9C5DB81B66D636001355BB /* GPFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9C5DB71B66D636001355BB /* GPFilterController.m */; };
 		5EDFBF431B61682300A68667 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFBF421B61682300A68667 /* main.m */; };
 		5EDFBF461B61682300A68667 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFBF451B61682300A68667 /* AppDelegate.m */; };
 		5EDFBF4E1B61682300A68667 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFBF4D1B61682300A68667 /* Images.xcassets */; };
@@ -42,8 +49,6 @@
 		5EDFBFB61B64182000A68667 /* info_bttn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFBFA41B64182000A68667 /* info_bttn.png */; };
 		5EDFBFB71B64182000A68667 /* navigation_bttn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFBFA51B64182000A68667 /* navigation_bttn.png */; };
 		5EDFBFB81B64182000A68667 /* play_bttn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFBFA61B64182000A68667 /* play_bttn.png */; };
-		5EDFBFC21B64195B00A68667 /* GPObjectsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDFBFC01B64195B00A68667 /* GPObjectsCell.m */; };
-		5EDFBFC31B64195B00A68667 /* GPObjectsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EDFBFC11B64195B00A68667 /* GPObjectsCell.xib */; };
 		BAD826C8BFF51866346EB761 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D24ADB49E4F2CB3A4EA04F2C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +65,18 @@
 /* Begin PBXFileReference section */
 		0ADA6EA303B9A128DBD5F1AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4ED3D46634F5ED080B5D7F48 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5E9C5D961B66505D001355BB /* GPObjectsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPObjectsCell.h; sourceTree = "<group>"; };
+		5E9C5D971B66505D001355BB /* GPObjectsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPObjectsCell.m; sourceTree = "<group>"; };
+		5E9C5D981B66505D001355BB /* GPObjectsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPObjectsCell.xib; sourceTree = "<group>"; };
+		5E9C5D9C1B6651A6001355BB /* GPNavTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNavTitleButton.h; sourceTree = "<group>"; };
+		5E9C5D9D1B6651A6001355BB /* GPNavTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNavTitleButton.m; sourceTree = "<group>"; };
+		5E9C5DAD1B66D0F6001355BB /* GPCamerasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPCamerasViewController.m; sourceTree = "<group>"; };
+		5E9C5DAE1B66D0F6001355BB /* GPCamerasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPCamerasViewController.h; sourceTree = "<group>"; };
+		5E9C5DB01B66D211001355BB /* GPCamerasCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPCamerasCell.xib; sourceTree = "<group>"; };
+		5E9C5DB11B66D211001355BB /* GPCamerasCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPCamerasCell.h; sourceTree = "<group>"; };
+		5E9C5DB21B66D211001355BB /* GPCamerasCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPCamerasCell.m; sourceTree = "<group>"; };
+		5E9C5DB61B66D636001355BB /* GPFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPFilterController.h; sourceTree = "<group>"; };
+		5E9C5DB71B66D636001355BB /* GPFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPFilterController.m; sourceTree = "<group>"; };
 		5EDFBF3D1B61682300A68667 /* GreenPeaceVideoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenPeaceVideoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EDFBF411B61682300A68667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EDFBF421B61682300A68667 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,9 +130,6 @@
 		5EDFBFA41B64182000A68667 /* info_bttn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_bttn.png; sourceTree = "<group>"; };
 		5EDFBFA51B64182000A68667 /* navigation_bttn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_bttn.png; sourceTree = "<group>"; };
 		5EDFBFA61B64182000A68667 /* play_bttn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_bttn.png; sourceTree = "<group>"; };
-		5EDFBFBF1B64195B00A68667 /* GPObjectsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPObjectsCell.h; sourceTree = "<group>"; };
-		5EDFBFC01B64195B00A68667 /* GPObjectsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPObjectsCell.m; sourceTree = "<group>"; };
-		5EDFBFC11B64195B00A68667 /* GPObjectsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPObjectsCell.xib; sourceTree = "<group>"; };
 		D24ADB49E4F2CB3A4EA04F2C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +152,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E9C5D941B66505D001355BB /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				5E9C5D951B66505D001355BB /* CollectionCell */,
+				5E9C5D991B66505D001355BB /* NavButton */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		5E9C5D951B66505D001355BB /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5E9C5DB11B66D211001355BB /* GPCamerasCell.h */,
+				5E9C5DB21B66D211001355BB /* GPCamerasCell.m */,
+				5E9C5DB01B66D211001355BB /* GPCamerasCell.xib */,
+				5E9C5D961B66505D001355BB /* GPObjectsCell.h */,
+				5E9C5D971B66505D001355BB /* GPObjectsCell.m */,
+				5E9C5D981B66505D001355BB /* GPObjectsCell.xib */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		5E9C5D991B66505D001355BB /* NavButton */ = {
+			isa = PBXGroup;
+			children = (
+				5E9C5D9C1B6651A6001355BB /* GPNavTitleButton.h */,
+				5E9C5D9D1B6651A6001355BB /* GPNavTitleButton.m */,
+			);
+			path = NavButton;
+			sourceTree = "<group>";
+		};
+		5E9C5DB51B66D636001355BB /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				5E9C5DB61B66D636001355BB /* GPFilterController.h */,
+				5E9C5DB71B66D636001355BB /* GPFilterController.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		5EDFBF341B61682300A68667 = {
 			isa = PBXGroup;
 			children = (
@@ -203,9 +257,12 @@
 		5EDFBF661B6168AF00A68667 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5EDFBFBE1B64195B00A68667 /* CollectionCell */,
+				5E9C5DB51B66D636001355BB /* Controls */,
+				5E9C5D941B66505D001355BB /* CustomView */,
 				5EDFBF671B6168C300A68667 /* GPViewController.h */,
 				5EDFBF681B6168C300A68667 /* GPViewController.m */,
+				5E9C5DAE1B66D0F6001355BB /* GPCamerasViewController.h */,
+				5E9C5DAD1B66D0F6001355BB /* GPCamerasViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -302,16 +359,6 @@
 				5EDFBFA61B64182000A68667 /* play_bttn.png */,
 			);
 			path = x;
-			sourceTree = "<group>";
-		};
-		5EDFBFBE1B64195B00A68667 /* CollectionCell */ = {
-			isa = PBXGroup;
-			children = (
-				5EDFBFBF1B64195B00A68667 /* GPObjectsCell.h */,
-				5EDFBFC01B64195B00A68667 /* GPObjectsCell.m */,
-				5EDFBFC11B64195B00A68667 /* GPObjectsCell.xib */,
-			);
-			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		81DC458BE07CC2FCF126DDEE /* Pods */ = {
@@ -430,7 +477,8 @@
 				5EDFBF511B61682300A68667 /* LaunchScreen.xib in Resources */,
 				5EDFBF4E1B61682300A68667 /* Images.xcassets in Resources */,
 				5EDFBFB11B64182000A68667 /* navigation_bttn@3x.png in Resources */,
-				5EDFBFC31B64195B00A68667 /* GPObjectsCell.xib in Resources */,
+				5E9C5DB31B66D211001355BB /* GPCamerasCell.xib in Resources */,
+				5E9C5D9B1B66505D001355BB /* GPObjectsCell.xib in Resources */,
 				5EDFBFA71B64182000A68667 /* back_bttn@2x.png in Resources */,
 				5EDFBFAE1B64182000A68667 /* check_icon@3x.png in Resources */,
 				5EDFBFB51B64182000A68667 /* drop_down_icon.png in Resources */,
@@ -485,12 +533,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EDFBF871B63D28800A68667 /* GPData.m in Sources */,
-				5EDFBFC21B64195B00A68667 /* GPObjectsCell.m in Sources */,
+				5E9C5D9A1B66505D001355BB /* GPObjectsCell.m in Sources */,
+				5E9C5DAF1B66D0F6001355BB /* GPCamerasViewController.m in Sources */,
 				5EDFBF711B61761400A68667 /* GPDataStore.m in Sources */,
 				5EDFBF801B617F8300A68667 /* GPCache.m in Sources */,
 				5EDFBF6E1B61759800A68667 /* GPDataReceiverWizard.m in Sources */,
 				5EDFBF461B61682300A68667 /* AppDelegate.m in Sources */,
+				5E9C5DB81B66D636001355BB /* GPFilterController.m in Sources */,
 				5EDFBF8B1B63FF1500A68667 /* UIColor+Extension.m in Sources */,
+				5E9C5DB41B66D211001355BB /* GPCamerasCell.m in Sources */,
+				5E9C5D9E1B6651A6001355BB /* GPNavTitleButton.m in Sources */,
 				5EDFBF691B6168C300A68667 /* GPViewController.m in Sources */,
 				5EDFBF7A1B617CD800A68667 /* GPGeo.m in Sources */,
 				5EDFBF741B617C1500A68667 /* GPType.m in Sources */,

@@ -15,7 +15,7 @@
 + (UIFont *)fontWithName:(NSString *)fontName pixelSize:(CGFloat)pixelSize
 {
     CGFloat fontSize = floor(pixelSize/2.2639);
-    return [UIFont fontWithName:fontName pixelSize:fontSize];
+    return [UIFont fontWithName:fontName size:fontSize];
 }
 
 
@@ -38,7 +38,7 @@
 
 + (UIFont *)customFont4
 {
-    return [UIFont fontWithName:@"HelveticaNeue-Medium " pixelSize:34.0f];
+    return [UIFont fontWithName:@"HelveticaNeue-Medium" pixelSize:34.0f];
 }
 
 + (UIFont *)customFont5
@@ -48,7 +48,7 @@
 
 + (UIFont *)customFont6
 {
-    return [UIFont fontWithName:@"HelveticaNeue-Medium " pixelSize:42.0f];
+    return [UIFont fontWithName:@"HelveticaNeue-Medium" pixelSize:42.0f];
 }
 
 @end

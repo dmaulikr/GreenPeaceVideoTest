@@ -10,11 +10,18 @@
 #import <AFNetworking/AFNetworking.h>
 #import "GPCache.h"
 
+typedef enum {
+    GPImageLoadTypeObject,
+    GPImageLoadTypeCamera
+} GPImageLoadType;
+
 @interface GPDataReceiverWizard : NSObject
 
 + (instancetype)sharedInstance;
 
 - (void)loadAllDataOnSuccessHandler:(void (^)(id responseObject))successHandler
                      onErrorHandler:(void (^)(NSError* error))errorHandler;
+
+- (void)loadImageWithName:(NSString *)imageName imageLoadType:(GPImageLoadType)imageLoadType completion:(void (^)(UIImage *image))completionBlock;
 
 @end

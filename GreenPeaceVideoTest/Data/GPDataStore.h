@@ -24,4 +24,9 @@
 
 - (void)restoreDataWithMapper:(id<GPDataMappingDelegate>)dataMapper;
 
+- (void)imageForKey:(NSString *)key isPreview:(BOOL)isPreview imageLoadType:(GPImageLoadType)imageLoadType completion:(void (^)(UIImage *image))completionBlock;
+
+- (NSArray *)listCamerasByObject:(GPObject *)object;
+- (NSArray *)objectsByFilertID:(NSNumber *)filterID;
+
 @end

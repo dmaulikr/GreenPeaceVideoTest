@@ -13,4 +13,6 @@
 @property (strong, nonatomic) NSNumber *ID;
 @property (strong, nonatomic) NSString *name;
 
++ (GPType *)typeWithID:(NSNumber *)ID name:(NSString *)name;
+
 @end

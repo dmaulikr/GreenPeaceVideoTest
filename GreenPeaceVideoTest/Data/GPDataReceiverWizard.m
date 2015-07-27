@@ -8,7 +8,7 @@
 
 #import "GPDataReceiverWizard.h"
 
-#define SERVER_API_URL @"http://t.appkode.ru/testcamera/api.php"
+#define SERVER_API_URL @"http://t.appkode.ru/testcamera/"
 
 #define kCacheKey @"storedData"
 
@@ -64,10 +64,12 @@
                     onSuccessHandler:(void (^)(id))successHandler
                       onErrorHandler:(void (^)(NSError *))errorHandler
 {
+    NSString *url = [SERVER_API_URL stringByAppendingPathComponent:@"api.php"];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     manager.responseSerializer = [AFHTTPResponseSerializer new];
-    [manager GET:SERVER_API_URL
+    [manager GET:url
       parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              successHandler(responseObject);
@@ -86,6 +88,48 @@
     return @{
              @"act" : @"getalldata"
              };
+}
+
+
+#pragma mark - Images
+
+- (void)loadImageWithName:(NSString *)imageName
+            imageLoadType:(GPImageLoadType)imageLoadType
+               completion:(void (^)(UIImage *image))completionBlock
+{
+    NSString *imageUrl = [[SERVER_API_URL stringByAppendingPathComponent:[self suffixImageUrlByType:imageLoadType]] stringByAppendingPathComponent:imageName];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:@"image/jpeg" forHTTPHeaderField:@"content-type"];
+    manager.responseSerializer = [AFHTTPResponseSerializer new];
+    [manager GET:imageUrl
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             if (responseObject) {
+                 UIImage *image = [UIImage imageWithData:responseObject];
+                 completionBlock(image);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
+}
+
+- (NSString *)suffixImageUrlByType:(GPImageLoadType)imageLoadType
+{
+    NSString *result = nil;
+    switch (imageLoadType) {
+        case GPImageLoadTypeObject:
+            result = @"uploads/object";
+            break;
+        case GPImageLoadTypeCamera:
+            result = @"uploads/camera";
+            break;
+        default:
+            result = @"";
+            break;
+    }
+    return result;
 }
 
 @end
