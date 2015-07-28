@@ -177,7 +177,11 @@
     }
     
     NSInteger customSeparatorViewTag = 1000123;
-    if (indexPath.row != self.filterList.count - 1 && ![cell.contentView viewWithTag:customSeparatorViewTag]) {
+    if (indexPath.row != self.filterList.count - 1) {
+        if ([cell.contentView viewWithTag:customSeparatorViewTag]) {
+            [[cell.contentView viewWithTag:customSeparatorViewTag] removeFromSuperview];
+        }
+        
         UIView *customSeparatorView = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                                                cell.bounds.size.height - 1,
                                                                                cell.bounds.size.width,

@@ -19,13 +19,14 @@
 #define kCollectionViewCornerRadius 6.0f
 
 
-@interface GPViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverControllerDelegate, GPFilterControllerDelegate>
+@interface GPViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverControllerDelegate, GPFilterControllerDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) NSNumber *lastSelectedFilter;
 @property (strong, nonatomic) GPFilterController *filterController;
 
 @property (strong, nonatomic) NSArray *objects;
+@property (strong, nonatomic) CLLocation *targetLocation;
 
 @end
 
@@ -122,10 +123,15 @@
                                    }];
     
     cell.pandaImageView.image = nil;
-    cell.locationImageView.image = [UIImage imageNamed:@"navigation_bttn"];
+    [cell.locationButton addTarget:self action:@selector(didTapLocationButton:) forControlEvents:UIControlEventTouchUpInside];
     cell.typeLabel.text = object.typeName;
+    cell.typeLabel.font = [UIFont customFont1];
+    cell.typeLabel.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.54];
     cell.titleLabel.text = object.name;
+    cell.titleLabel.font = [UIFont customFont2];
     cell.locationLabel.text = object.addressName;
+    cell.locationLabel.font = [UIFont customFont3];
+    cell.locationLabel.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.54];
     [cell.playButton addTarget:self action:@selector(didTapPlayButton:) forControlEvents:UIControlEventTouchUpInside];
     if ([object.countCameras integerValue] == 1) {
         cell.playButton.hidden = NO;
@@ -216,6 +222,25 @@
     [viewController playVideoWithStreamURL:[NSURL URLWithString:camera.url]];
 }
 
+- (void)didTapLocationButton:(id)sender
+{
+    GPObjectsCell *cell = (GPObjectsCell *)((UIButton *)sender).superview.superview;
+    if (![cell isKindOfClass:[GPObjectsCell class]]) {
+        return;
+    }
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    GPObject *object = [self.objects objectAtIndex:indexPath.row];
+    _targetLocation = [[CLLocation alloc] initWithLatitude:[object.geo.latitude doubleValue] longitude:[object.geo.longitude doubleValue]];
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Отмена"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Apple Maps", @"Google Maps", @"Yandex Maps", nil];
+    [actionSheet showInView:self.view];
+}
+
 - (void)didTapTitleButton:(id)sender
 {
     if (!_filterController) {
@@ -237,6 +262,48 @@
     _lastSelectedFilter = filterID;
     [self dateRestoreSuccess];
     [self.filterController dismissFilterController];
+}
+
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (!self.targetLocation || ![GPDataStore sharedInstance].currentLocation) {
+        return;
+    }
+    
+    NSString *urlString = nil;
+    switch (buttonIndex) {
+        case 0: {
+            urlString = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", [GPDataStore sharedInstance].currentLocation.coordinate.latitude, [GPDataStore sharedInstance].currentLocation.coordinate.longitude, self.targetLocation.coordinate.latitude, self.targetLocation.coordinate.longitude];
+        }
+            break;
+        case 1: {
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
+                urlString = [NSString stringWithFormat:@"comgooglemaps://?center=%f,%f&zoom=14&views=traffic", self.targetLocation.coordinate.latitude, self.targetLocation.coordinate.longitude];
+            }
+            else {
+                urlString = @"https://itunes.apple.com/ru/app/google-maps/id585027354?mt=8";
+            }
+        }
+            break;
+        case 2: {
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"yandexmaps://"]]) {
+                urlString = [NSString stringWithFormat:@"yandexmaps://build_route_on_map/?lat_from=%f&lon_from=%f&lat_to=%f&lon_to=%f", [GPDataStore sharedInstance].currentLocation.coordinate.latitude, [GPDataStore sharedInstance].currentLocation.coordinate.longitude, self.targetLocation.coordinate.latitude, self.targetLocation.coordinate.longitude];
+            } else {
+                urlString = @"https://itunes.apple.com/ru/app/yandex.maps/id313877526?mt=8";
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 @end

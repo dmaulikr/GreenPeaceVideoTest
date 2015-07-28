@@ -13,6 +13,7 @@
 {
     GPData *_data;
     NSMutableDictionary *_imagesDictionary;
+    CLLocationManager *_locationManager;
 }
 
 + (instancetype)sharedInstance
@@ -25,6 +26,23 @@
     });
     
     return instance;
+}
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        _locationManager.distanceFilter = kCLDistanceFilterNone;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+            [_locationManager requestWhenInUseAuthorization];
+        
+        [_locationManager startUpdatingLocation];
+    }
+    return self;
 }
 
 -(NSArray *)objects
@@ -43,7 +61,7 @@
 }
 
 
-#pragma mark -
+#pragma mark - data
 
 - (void)restoreDataWithMapper:(id<GPDataMappingDelegate>)dataMapper
 {
@@ -102,7 +120,7 @@
 }
 
 
-#pragma mark - 
+#pragma mark - methods
 
 - (NSArray *)listCamerasByObject:(GPObject *)object
 {
@@ -122,6 +140,19 @@
         return [object.typeList containsObject:filterID];
     })
     .unwrap;
+}
+
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Ошибка при получении текущей позиции");
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    _currentLocation = newLocation;
 }
 
 @end

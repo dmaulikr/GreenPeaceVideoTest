@@ -16,11 +16,12 @@
 #define kCollectionViewCornerRadius 6.0f
 
 
-@interface GPCamerasViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface GPCamerasViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
 
 @property (strong, nonatomic) NSArray *cameras;
+@property (strong, nonatomic) CLLocation *targetLocation;
 
 @end
 
@@ -36,6 +37,7 @@
                                                    object:nil];
         
         _cameras = [[GPDataStore sharedInstance] listCamerasByObject:object];
+        _targetLocation = [[CLLocation alloc] initWithLatitude:[object.geo.latitude doubleValue] longitude:[object.geo.longitude doubleValue]];
     }
     return self;
 }
@@ -54,17 +56,23 @@
 {
     [super viewDidLoad];
     
-    UIImage *bgImage = [UIImage imageNamed:@"back_bttn"];
+    UIImage *bgLeftImage = [UIImage imageNamed:@"back_bttn"];
     UIButton* backButton = [[UIButton alloc] init];
     backButton.frame = CGRectMake(0, 0, 40, 40);
     [backButton setBackgroundColor:[UIColor clearColor]];
-    [backButton setImage:bgImage forState:UIControlStateNormal];
-    [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setImage:bgLeftImage forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(popViewController:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    UIBarButtonItem* buttonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = buttonItem;
+    UIImage *bgRightImage = [UIImage imageNamed:@"navigation_bttn"];
+    UIButton* navButton = [[UIButton alloc] init];
+    navButton.frame = CGRectMake(0, 0, 40, 40);
+    [navButton setBackgroundColor:[UIColor clearColor]];
+    [navButton setImage:bgRightImage forState:UIControlStateNormal];
+    [navButton addTarget:self action:@selector(didTapNavButton:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navButton];
+    
     [self.navigationItem setHidesBackButton:YES animated:NO];
-    
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds
                                                  collectionViewLayout:[UICollectionViewFlowLayout new]];
@@ -113,6 +121,7 @@
                                    }];
     
     cell.titleLabel.text = camera.name;
+    cell.titleLabel.font = [UIFont customFont2];
     [cell.playButton addTarget:self action:@selector(didTapPlayButton:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
@@ -166,6 +175,63 @@
     VKVideoPlayerViewController *viewController = [[VKVideoPlayerViewController alloc] init];
     [self presentViewController:viewController animated:YES completion:nil];
     [viewController playVideoWithStreamURL:[NSURL URLWithString:camera.url]];
+}
+
+- (void)popViewController:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didTapNavButton:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Отмена"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Apple Maps", @"Google Maps", @"Yandex Maps", nil];
+    [actionSheet showInView:self.view];
+}
+
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (!self.targetLocation || ![GPDataStore sharedInstance].currentLocation) {
+        return;
+    }
+    
+    NSString *urlString = nil;
+    switch (buttonIndex) {
+        case 0: {
+            urlString = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f", [GPDataStore sharedInstance].currentLocation.coordinate.latitude, [GPDataStore sharedInstance].currentLocation.coordinate.longitude, self.targetLocation.coordinate.latitude, self.targetLocation.coordinate.longitude];
+        }
+            break;
+        case 1: {
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"comgooglemaps://"]]) {
+                urlString = [NSString stringWithFormat:@"comgooglemaps://?center=%f,%f&zoom=14&views=traffic", self.targetLocation.coordinate.latitude, self.targetLocation.coordinate.longitude];
+            }
+            else {
+                urlString = @"https://itunes.apple.com/ru/app/google-maps/id585027354?mt=8";
+            }
+        }
+            break;
+        case 2: {
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"yandexmaps://"]]) {
+                urlString = [NSString stringWithFormat:@"yandexmaps://build_route_on_map/?lat_from=%f&lon_from=%f&lat_to=%f&lon_to=%f", [GPDataStore sharedInstance].currentLocation.coordinate.latitude, [GPDataStore sharedInstance].currentLocation.coordinate.longitude, self.targetLocation.coordinate.latitude, self.targetLocation.coordinate.longitude];
+            } else {
+                urlString = @"https://itunes.apple.com/ru/app/yandex.maps/id313877526?mt=8";
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 @end
