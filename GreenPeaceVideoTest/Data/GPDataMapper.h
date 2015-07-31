@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "GPDataMappingDelegate.h"
 
+#define OBJECTS @"objects"
+#define CAMERAS @"cameras"
+#define TYPE_LIST @"type_list"
+#define CATEGORY_LIST @"category_list"
+
 @interface GPDataMapper : NSObject<GPDataMappingDelegate>
 
 @end
