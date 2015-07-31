@@ -35,8 +35,7 @@
                                  };
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] init];
-    [navigationController pushViewController:[[GPViewController alloc] init] animated:NO];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[GPViewController alloc] init]];
     self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
