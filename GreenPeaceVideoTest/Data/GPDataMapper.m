@@ -23,9 +23,9 @@
     
     NSDictionary *dataObj = (data && [data isKindOfClass:[NSDictionary class]]) ? CHECK_OBJ_BY_KEY(data, @"data") : nil;
 
-    NSArray *objectsArr = dataObj ? CHECK_OBJ_BY_KEY(dataObj, @"objects") : nil;
-    NSArray *camerasArr = dataObj ? CHECK_OBJ_BY_KEY(dataObj, @"cameras") : nil;
-    NSArray *typeListArr = dataObj ? CHECK_OBJ_BY_2_KEY(dataObj, @"type_list", @"category_list") : nil;
+    NSArray *objectsArr = dataObj ? CHECK_OBJ_BY_KEY(dataObj, OBJECTS) : nil;
+    NSArray *camerasArr = dataObj ? CHECK_OBJ_BY_KEY(dataObj, CAMERAS) : nil;
+    NSArray *typeListArr = dataObj ? CHECK_OBJ_BY_2_KEY(dataObj, TYPE_LIST, CATEGORY_LIST) : nil;
     
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
