@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -13,27 +13,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="303" height="236"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JD6-mi-oHJ" userLabel="Preview Image View">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JD6-mi-oHJ" userLabel="Preview Image View">
                         <rect key="frame" x="0.0" y="44" width="303" height="192"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="192" id="HP0-ro-Xlk"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Камера 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fli-uR-G1n">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Камера 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-uR-G1n">
                         <rect key="frame" x="16" y="12" width="239" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="M1e-Ev-ZHR"/>
+                            <constraint firstAttribute="width" constant="239" id="wSP-fp-pmZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="op5-AI-rwf">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="op5-AI-rwf">
                         <rect key="frame" x="123" y="110" width="56" height="56"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="play_bttn.png" backgroundImage="33D02CBE-DEC4-4781-ACDA-36625EAF8802">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="KDs-Aa-H4b"/>
+                            <constraint firstAttribute="width" constant="56" id="mSz-1j-B50"/>
+                        </constraints>
+                        <state key="normal" image="play_bttn.png" backgroundImage="F1D50320-BBA4-414D-AD64-387980232F6C">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstItem="JD6-mi-oHJ" firstAttribute="top" secondItem="Fli-uR-G1n" secondAttribute="bottom" constant="12" id="EZe-6M-5Ud"/>
+                <constraint firstItem="JD6-mi-oHJ" firstAttribute="leading" secondItem="gXu-ok-eH7" secondAttribute="leading" id="Jfs-7f-g6E"/>
+                <constraint firstItem="Fli-uR-G1n" firstAttribute="top" secondItem="gXu-ok-eH7" secondAttribute="top" constant="12" id="OIu-WO-Nr6"/>
+                <constraint firstAttribute="trailing" secondItem="JD6-mi-oHJ" secondAttribute="trailing" id="c2X-8m-b0f"/>
+                <constraint firstItem="op5-AI-rwf" firstAttribute="top" secondItem="Fli-uR-G1n" secondAttribute="bottom" constant="78" id="lir-Dg-9xR"/>
+                <constraint firstItem="Fli-uR-G1n" firstAttribute="leading" secondItem="gXu-ok-eH7" secondAttribute="leading" constant="16" id="q36-Nc-zqe"/>
+                <constraint firstAttribute="bottom" secondItem="JD6-mi-oHJ" secondAttribute="bottom" id="r0f-rk-6Nk"/>
+                <constraint firstAttribute="centerX" secondItem="op5-AI-rwf" secondAttribute="centerX" id="uY8-rd-vXH"/>
+            </constraints>
             <connections>
                 <outlet property="playButton" destination="op5-AI-rwf" id="hFG-75-3Xc"/>
                 <outlet property="previewImageView" destination="JD6-mi-oHJ" id="XaX-EQ-ne9"/>
@@ -43,7 +61,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="33D02CBE-DEC4-4781-ACDA-36625EAF8802" width="56" height="56">
+        <image name="F1D50320-BBA4-414D-AD64-387980232F6C" width="56" height="56">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -324,9 +342,4 @@ AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAAP7o
         </image>
         <image name="play_bttn.png" width="56" height="56"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

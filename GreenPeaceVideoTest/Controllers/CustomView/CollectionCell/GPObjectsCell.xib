@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -13,45 +13,65 @@
                 <rect key="frame" x="0.0" y="0.0" width="303" height="296"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JD6-mi-oHJ" userLabel="Preview Image View">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JD6-mi-oHJ" userLabel="Preview Image View">
                         <rect key="frame" x="0.0" y="64" width="303" height="188"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="188" id="v41-kN-uef"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xUL-j7-qHV" userLabel="Panda Image View">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUL-j7-qHV" userLabel="Panda Image View">
                         <rect key="frame" x="261" y="16" width="32" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="akG-RR-boA"/>
+                            <constraint firstAttribute="height" constant="32" id="dQ3-qD-3Hg"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Эфиопия" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R7g-6w-vnd">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Эфиопия" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7g-6w-vnd">
                         <rect key="frame" x="16" y="264" width="239" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="239" id="0It-h1-TrU"/>
+                            <constraint firstAttribute="height" constant="20" id="7t5-ig-IrH"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Млекопитающие" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fli-uR-G1n">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Млекопитающие" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-uR-G1n">
                         <rect key="frame" x="16" y="12" width="239" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="239" id="QAc-CZ-Qgl"/>
+                            <constraint firstAttribute="height" constant="20" id="gAV-Le-a7K"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зебры" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ryX-iG-RDq">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зебры" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryX-iG-RDq">
                         <rect key="frame" x="16" y="32" width="239" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="PDH-d0-bDW"/>
+                            <constraint firstAttribute="width" constant="239" id="iDO-dB-oVu"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="op5-AI-rwf">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="op5-AI-rwf">
                         <rect key="frame" x="123" y="132" width="56" height="56"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="play_bttn.png" backgroundImage="F12A2697-F1CB-4897-B587-A206C89FD4B0">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="q1P-qM-os7"/>
+                            <constraint firstAttribute="height" constant="56" id="xWx-TP-czH"/>
+                        </constraints>
+                        <state key="normal" image="play_bttn.png" backgroundImage="5EC59B38-21AB-4D95-89AD-027F77ECE219">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6rb-xA-MQQ">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-xA-MQQ">
                         <rect key="frame" x="274" y="262" width="14" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="6Tc-TA-MM3"/>
+                            <constraint firstAttribute="width" constant="14" id="n1c-TD-L4Y"/>
+                        </constraints>
                         <state key="normal" title="Button" image="navigation_bttn.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -59,6 +79,29 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstItem="Fli-uR-G1n" firstAttribute="leading" secondItem="gXu-ok-eH7" secondAttribute="leading" constant="16" id="4G2-vZ-dqN"/>
+                <constraint firstItem="R7g-6w-vnd" firstAttribute="leading" secondItem="gXu-ok-eH7" secondAttribute="leading" constant="16" id="4rb-iV-2hM"/>
+                <constraint firstAttribute="centerX" secondItem="op5-AI-rwf" secondAttribute="centerX" id="9ns-Pa-4tp"/>
+                <constraint firstAttribute="bottom" secondItem="6rb-xA-MQQ" secondAttribute="bottom" constant="12" id="Dp0-yj-kYj"/>
+                <constraint firstItem="ryX-iG-RDq" firstAttribute="top" secondItem="Fli-uR-G1n" secondAttribute="bottom" id="IPt-wA-P5p"/>
+                <constraint firstItem="JD6-mi-oHJ" firstAttribute="leading" secondItem="gXu-ok-eH7" secondAttribute="leading" id="MOz-Wm-lAL"/>
+                <constraint firstItem="op5-AI-rwf" firstAttribute="top" secondItem="ryX-iG-RDq" secondAttribute="bottom" constant="80" id="N2b-ij-dCG"/>
+                <constraint firstAttribute="centerX" secondItem="JD6-mi-oHJ" secondAttribute="centerX" id="NuC-Fu-xkd"/>
+                <constraint firstAttribute="bottom" secondItem="R7g-6w-vnd" secondAttribute="bottom" constant="12" id="ZQg-1W-fHo"/>
+                <constraint firstItem="Fli-uR-G1n" firstAttribute="top" secondItem="gXu-ok-eH7" secondAttribute="top" constant="12" id="bKv-eP-vz6"/>
+                <constraint firstItem="ryX-iG-RDq" firstAttribute="leading" secondItem="gXu-ok-eH7" secondAttribute="leading" constant="16" id="gXR-uZ-NxA"/>
+                <constraint firstAttribute="trailing" secondItem="xUL-j7-qHV" secondAttribute="trailing" constant="10" id="its-t6-xje"/>
+                <constraint firstAttribute="trailing" secondItem="6rb-xA-MQQ" secondAttribute="trailing" constant="15" id="jAD-NN-RXv"/>
+                <constraint firstItem="JD6-mi-oHJ" firstAttribute="top" secondItem="ryX-iG-RDq" secondAttribute="bottom" constant="12" id="t2w-zu-f41"/>
+                <constraint firstAttribute="trailing" secondItem="JD6-mi-oHJ" secondAttribute="trailing" id="v4J-St-X0k"/>
+                <constraint firstItem="xUL-j7-qHV" firstAttribute="top" secondItem="gXu-ok-eH7" secondAttribute="top" constant="16" id="ynW-kP-p2g"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="NuC-Fu-xkd"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="locationButton" destination="6rb-xA-MQQ" id="BPJ-oN-uct"/>
                 <outlet property="locationLabel" destination="R7g-6w-vnd" id="U5D-Qx-MnY"/>
@@ -72,7 +115,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="F12A2697-F1CB-4897-B587-A206C89FD4B0" width="56" height="56">
+        <image name="5EC59B38-21AB-4D95-89AD-027F77ECE219" width="56" height="56">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -354,9 +397,4 @@ AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAAP7o
         <image name="navigation_bttn.png" width="14" height="20"/>
         <image name="play_bttn.png" width="56" height="56"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

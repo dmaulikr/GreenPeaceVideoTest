@@ -9,7 +9,7 @@
 
 #define kGPCamerasCellIdentifier @"kGPCamerasCellIdentifier"
 
-#define COLLECTION_VIEW_HEIGHT 296.0f
+#define COLLECTION_VIEW_HEIGHT 236.0f
 #define COLLECTION_VIEW_INSETS UIEdgeInsetsMake(8.0, 8.0, 8.0, 8.0)
 
 @interface GPCamerasCell : UICollectionViewCell
